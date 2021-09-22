@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="form">
+            <h4>
+                Fullname: 
+            </h4>
+            <input type="text" id="username" class="username" name="username">
+            <div class="user_error" id ="user_error">Username field cannot be empty.</div>
+            <h4>
+                Nationality: 
+            </h4>
+            <form action="" method="get" id="country-list" class="country-list">
+                <input list="countries" name="country" id="country">
+                <datalist id="countries">
+                  <option value="India">
+                  <option value="Japan">
+                  <option value="USA">
+                  <option value="England">
+                  <option value="France">
+                </datalist>
+              </form>
+              <div class="country_error" id ="country_error">Nationality field cannot be empty.</div>
+            <h4>
+                Gender: 
+            </h4>
+            <div id="radiobuttons" class="radiobuttons">
+                <input type="radio" id="Male" name="gender" value="Male">
+                <label for="Male">Male</label>
+                <input type="radio" id="Female" name="gender" value="Female">
+                <label for="Female">Female</label>
+                <input type="radio" id="Others" name="gender" value="Others">
+                <label for="Others">Others</label>
+            </div>
+            <div class="gender_error" id ="gender_error">Please select a gender.</div>
+            <h4>
+                Password: 
+            </h4>
+            <input type="text" id="pass" class="pass" name="pass">
+            <div class="pass_error" id ="pass_error">Password field cannot be empty..</div>
+            <div id="policy">
+                <input type="checkbox" id="terms" name="terms" value="Terms">
+                <label for="terms"> Terms and conditions.</label><br>
+            </div>
+           <input type="button" id="button" class="button" value="login" onclick="validation()">
+           <div class="terms_error" id ="terms_error">Please check terms and conditions.</div>
+        </div>
+</div>
+<script src="main.js"></script>
+</body>
+</html>
