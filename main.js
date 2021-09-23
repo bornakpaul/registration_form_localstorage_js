@@ -79,11 +79,26 @@ function dataStorage(){
         terms_agreed: 'true'
     };
 
-    let myObj_serialized = JSON.stringify(myObj);
-    
-    localStorage.setItem("details", myObj_serialized);
-    //console.log(localStorage);
 
-    let myObj_deserialized = JSON.parse(localStorage.getItem("details"));
+    if(localStorage.getItem('users') == null){
+        localStorage.setItem('users','[]');
+    }
+
+    let old_data = JSON.parse(localStorage.getItem('users'));
+    old_data.push(myObj);
+
+    let myObj_serialized = JSON.stringify(old_data);
+
+    localStorage.setItem('users', myObj_serialized);
+
+    let myObj_deserialized = JSON.parse(localStorage.getItem('users'));
     console.log(myObj_deserialized);
+
+    // let myObj_serialized = JSON.stringify(myObj);
+    
+    // localStorage.setItem("details", myObj_serialized);
+    // //console.log(localStorage);
+
+    // let myObj_deserialized = JSON.parse(localStorage.getItem("details"));
+    // console.log(myObj_deserialized);
 }
