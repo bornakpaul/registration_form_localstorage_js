@@ -57,7 +57,8 @@ function validation(){
     }
 
     if((user.length && pass.length && nationality.length && gender.length>= 1)&&terms.checked == true){
-        dataStorage()
+        dataStorage();
+        postData();
     }
 }
 
@@ -102,3 +103,32 @@ function dataStorage(){
     // let myObj_deserialized = JSON.parse(localStorage.getItem("details"));
     // console.log(myObj_deserialized);
 }
+
+function postData(){
+    let user = document.getElementById("username").value;
+    let pass = document.getElementById("pass").value;
+
+    fetch("https://reqres.in/api/register",{
+       method : "Post",
+       headers : {
+          "Content-Type": "application/json"
+       },
+       body : JSON.stringify({
+          "email": user,
+          "password": pass
+       })
+    })
+    .then(response => {
+       if(!response.ok){
+          throw Error("ERROR");
+       }
+       return response.json;
+    })
+    .then(data =>{
+       console.log(data);
+    })
+    .catch(error => {
+       console.log(error);
+    })
+  }
+
